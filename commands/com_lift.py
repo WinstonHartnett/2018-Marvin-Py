@@ -62,9 +62,7 @@ class HoldLift(wpilib.command.Command):
 
 class SetLiftSpeed(wpilib.command.Command):
 
-    def __init__(self, spd_new):
-        self.requires(s.sub_lift)
-        self.spd = spd_new
+    def __init__(self, spd_new): self.spd = spd_new
 
     def execute(self):
         s.sub_lift.setSpeed(self.spd)

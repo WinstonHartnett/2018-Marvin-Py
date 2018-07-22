@@ -30,9 +30,7 @@ class RaiseTaster(wpilib.command.Command):
 
 class SetTasterSpeed(wpilib.command.Command):
 
-    def __init__(self, spd_new):
-        self.requires(s.sub_taster)
-        self.spd = spd_new
+    def __init__(self, spd_new): self.spd = spd_new
 
     def execute(self): s.sub_taster.setSpeed(self.spd)
 

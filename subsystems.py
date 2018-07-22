@@ -1,6 +1,6 @@
 import time
 
-from ctre import ControlMode, TalonSRX
+from ctre import ControlMode, WPI_TalonSRX
 from wpilib import (ADXRS450_Gyro, DigitalInput, Encoder, PIDController,
                     SpeedControllerGroup)
 from wpilib.command import Subsystem
@@ -24,7 +24,7 @@ class Sub_Drive(Subsystem):
         spd_cont_L1, spd_cont_L2, spd_cont_R1, spd_cont_R2)
 
     drive = DifferentialDrive(spd_cont_grp_L, spd_cont_grp_R)
-    gyro = ADXRS450_Gyro
+    gyro = ADXRS450_Gyro(1)
 
     encoder_L = Encoder(constants.encoder_left_1, constants.encoder_left_2)
     encoder_R = Encoder(constants.encoder_right_1, constants.encoder_right_2)
@@ -33,12 +33,12 @@ class Sub_Drive(Subsystem):
     pid_cont = PIDController(p, 0, 0, encoder_L, spd_cont_grp_C)
 
     def setupEncoder(self):
-        self.encoder_L.setDistancePerPulse(constants.distance_per_pulse)
-        self.encoder_R.setDistancePerPulse(constants.distance_per_pulse)
+        # self.encoder_L.setDistancePerPulse(constants.distance_per_pulse)
+        # self.encoder_R.setDistancePerPulse(constants.distance_per_pulse)
         self.pid_cont.setAbsoluteTolerance(5)
         self.pid_cont.setOutputRange(-0.6, 0.6)
-        self.encoder_L.reset()
-        self.encoder_R.reset()
+        # self.encoder_L.reset()
+        # self.encoder_R.reset()
 
     def setDriveSpd(self, spd_drive_new):
         constants.spd_drive = spd_drive_new
@@ -74,8 +74,8 @@ class Sub_Drive(Subsystem):
 
 class Sub_Intake(Subsystem):
 
-    spd_cont_1 = TalonSRX(1)
-    spd_cont_2 = TalonSRX(2)
+    spd_cont_1 = WPI_TalonSRX(1)
+    spd_cont_2 = WPI_TalonSRX(2)
     spd_cont_grp = SpeedControllerGroup(spd_cont_1, spd_cont_2)
 
     def setSpeed(self, spd_intake_new):
@@ -127,7 +127,7 @@ class Sub_Lift(Subsystem):
     lim_top = DigitalInput(9)
     lim_bot = DigitalInput(8)
 
-    spd_cont_lift = TalonSRX(3)
+    spd_cont_lift = WPI_TalonSRX(3)
 
     def setSpeed(self, spd_lift_new):
         constants.spd_lift = spd_lift_new
@@ -156,7 +156,7 @@ class Sub_Lift(Subsystem):
 
 class Sub_Taster(Subsystem):
 
-    spd_cont_taster = TalonSRX(4)
+    spd_cont_taster = WPI_TalonSRX(4)
 
     def setSpeed(self, spd_taster_new):
         constants.spd_taster = spd_taster_new

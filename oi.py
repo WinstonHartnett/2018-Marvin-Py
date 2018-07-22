@@ -1,12 +1,12 @@
-from wpilib import Joystick
-from wpilib.buttons import JoystickButton
-from wpilib.command import Command
 from commands.com_drive import DriveNormal, SetDriveSpeed, SetRotateSpeed
 from commands.com_intake import DislodgeBox, EjectBox, IntakeBox
 from commands.com_lift import HoldLift, LowerLift, RaiseLift
 from commands.com_taster import LowerTaster, RaiseTaster, SetTasterSpeed
 from commands.com_winch import RaiseWinch, SetWinchSpeed, StopWinch
 
+from wpilib import Joystick
+from wpilib.buttons import JoystickButton
+from wpilib.command import Command
 
 joystick = button_A = button_X = button_Y = trigger_L = trigger_R = bumper_L = bumper_R = None
 
@@ -16,7 +16,7 @@ def getJoystick():
 
     # Button assignments
     button_A = JoystickButton(joystick, 1)
-    button_B = JoystickButton(joystick, 2)
+    # button_B = JoystickButton(joystick, 2)
     button_X = JoystickButton(joystick, 3)
     button_Y = JoystickButton(joystick, 4)
     bumper_L = JoystickButton(joystick, 5)

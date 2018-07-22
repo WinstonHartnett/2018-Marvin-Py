@@ -1,8 +1,10 @@
 import wpilib
 from commandbased import CommandBasedRobot
+from wpilib.command import Scheduler
 
 import oi
 import sub
+from dashboard import Dashboard
 
 
 class Marvin(CommandBasedRobot):
@@ -10,17 +12,25 @@ class Marvin(CommandBasedRobot):
     def robotInit(self):
         sub.init()
 
+        self.dashboard = Dashboard()
+        self.dashboard.init()
+
     def disabledInit(self):
-        pass
+        Scheduler.getInstance().removeAll()
 
     def disabledPeriodic(self):
-        pass
+        Scheduler.getInstance().run()
 
     def teleopInit(self):
-        pass
+        sub.sub_drive.setupEncoder()
+        sub.sub_drive.resetGyro()
+        sub.sub_drive.spd_cont_L1.setInverted(False)
+        sub.sub_drive.spd_cont_L2.setInverted(False)
 
     def teleopPeriodic(self):
-        pass
+        self.dashboard.poll()
+        self.dashboard.start()
+        Scheduler.getInstance().run()
 
     def autonomousInit(self):
         pass

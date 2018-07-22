@@ -32,9 +32,7 @@ class StopWinch(wpilib.command.Command):
 
 class SetWinchSpeed(wpilib.command.Command):
 
-    def __init__(self, spd_new): 
-        self.requires(s.sub_winch)
-        self.spd = spd_new
+    def __init__(self, spd_new): self.spd = spd_new
 
     def execute(self): s.sub_winch.setSpeed(self.spd)
 

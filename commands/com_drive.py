@@ -1,10 +1,10 @@
-import wpilib.command
+from wpilib.command import Command
 
 import constants
 import sub as s
 
 
-class DriveNormal(wpilib.command.Command):
+class DriveNormal(Command):
 
     def __init__(self): self.requires(s.sub_drive)
 
@@ -13,7 +13,7 @@ class DriveNormal(wpilib.command.Command):
     def isFinished(self): return False
 
 
-class SetDriveSpeed(wpilib.command.InstantCommand):
+class SetDriveSpeed(Command):
 
     def __init__(self, spd_new): self.spd = spd_new
 
@@ -22,7 +22,7 @@ class SetDriveSpeed(wpilib.command.InstantCommand):
     def isFinished(self): return True
 
 
-class SetRotateSpeed(wpilib.command.InstantCommand):
+class SetRotateSpeed(Command):
 
     def __init__(self, spd_new): self.spd = spd_new
 

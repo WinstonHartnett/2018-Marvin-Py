@@ -1,11 +1,5 @@
 from subsystems import Sub_Drive, Sub_Intake, Sub_Lift, Sub_Taster, Sub_Winch
 
-sub_drive = None
-sub_intake = None
-sub_lift = None
-sub_taster = None
-sub_winch = None
-
 
 def init():
     global sub_drive
@@ -19,3 +13,5 @@ def init():
     sub_lift = Sub_Lift()
     sub_taster = Sub_Taster()
     sub_winch = Sub_Winch()
+
+    sub_drive.setupEncoder()

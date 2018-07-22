@@ -33,3 +33,7 @@ spd_lift = spd_6
 spd_lift_lower = spd_4
 spd_taster = spd_6
 spd_winch = spd_6
+
+# Location
+loc_robot = 1
+loc_target = 2
