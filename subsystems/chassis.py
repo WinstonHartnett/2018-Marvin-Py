@@ -1,10 +1,11 @@
-from commands.josytickdrive import JoystickDrive
+from commands.joystickdrive import JoystickDrive
 
 from wpilib import ADXRS450_Gyro, Spark, SpeedControllerGroup
 from wpilib.command import Subsystem
 from wpilib.drive import DifferentialDrive
 
 import robotmap
+from inputs import xboxcontroller
 
 
 class Chassis(Subsystem):
@@ -31,7 +32,8 @@ class Chassis(Subsystem):
         self.drive.curvatureDrive(spd_x, spd_z, True)
 
     def joystickDrive(self):
-        pass            # TODO
+        self.drive.curvatureDrive(-(xboxcontroller.joystick.getRawAxis(1))
+                                  * robotmap.spd_chassis_drive, xboxcontroller.joystick.getRawAxis(4) * robotmap.spd_chassis_rotate, True)
 
     def getGyroAngle(self, parameter_list):
         pass            # TODO
