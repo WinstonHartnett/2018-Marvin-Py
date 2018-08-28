@@ -1,11 +1,11 @@
 import time
-from commands.boxintake import BoxIntake
 
 from ctre import WPI_TalonSRX
 from wpilib import SpeedControllerGroup
 from wpilib.command import Subsystem
 
 import robotmap
+from inputs import oi
 
 
 class Intake(Subsystem):
@@ -18,12 +18,15 @@ class Intake(Subsystem):
     def setSpd(self, spd_new):
         robotmap.spd_intake = spd_new
 
-    # Fix this
     def intake(self, spd_temp=None, is_fixed=None):
         self.talon_1.setInverted(True)
         self.talon_2.setInverted(False)
         if spd_temp == None and is_fixed == None:
-            pass                                        # TODO
+            if oi.joystick.getAxis(2) - oi.joystick.getAxis(3) >= 0.8:
+                self.talon_group.set(0.8)
+            elif oi.joystick.getAxis(2) - oi.joystick.getAxis(3) < 0.8:
+                self.talon_group.set(oi.joystick.getAxis(
+                    2) - oi.joystick.getAxis(3))
         elif spd_temp != None and is_fixed == None:
             self.talon_group.set(spd_temp)
         elif spd_temp != None and is_fixed != None:
@@ -35,7 +38,7 @@ class Intake(Subsystem):
         self.talon_1.setInverted(False)
         self.talon_2.setInverted(True)
         if spd_temp == None and is_fixed == None:
-            pass                                        # TODO
+            self.talon_group.set(oi.joystick.getAxis(3))
         elif spd_temp != None and is_fixed == None:
             self.talon_group.set(spd_temp)
         elif spd_temp != None and is_fixed != None:
@@ -53,4 +56,4 @@ class Intake(Subsystem):
         self.talon_group.stopMotor()
 
     def initDefaultCommand(self):
-        self.setDefaultCommand(BoxIntake())
+        pass

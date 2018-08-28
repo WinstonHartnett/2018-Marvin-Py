@@ -1,13 +1,15 @@
 from .chassis import Chassis
-from .lift import Lift
 from .intake import Intake
+from .lift import Lift
 from .winch import Winch
+
+chassis, intake, lift, winch = None, None, None, None
 
 
 def init():
-    global chassis, lift, intake, winch
+    global chassis, intake, lift, winch
 
     chassis = Chassis()
-    lift = Lift()
     intake = Intake()
+    lift = Lift()
     winch = Winch()

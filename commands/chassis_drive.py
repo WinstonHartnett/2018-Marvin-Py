@@ -1,8 +1,9 @@
 from wpilib.command import Command
+
 import subsystems
 
 
-class JoystickDrive(Command):
+class Chassis_Drive(Command):
 
     def __init__(self):
         self.requires(subsystems.chassis)

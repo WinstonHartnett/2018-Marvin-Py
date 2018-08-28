@@ -16,3 +16,4 @@ spd_intake = 0.6
 spd_winch = 0.6
 
 joystick = 0
+gyro = 0

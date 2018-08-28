@@ -1,22 +1,26 @@
 
+import commands
+
 import wpilib
 from commandbased import CommandBasedRobot
+from wpilib.command import Scheduler
 
 import subsystems
-from inputs import xboxcontroller
+from inputs import oi
 
 
 class Marvin(CommandBasedRobot):
 
     def robotInit(self):
-        xboxcontroller.init()
         subsystems.init()
+        oi.init()
+        commands.init()
 
     def autonomousInit(self):
         pass
 
     def autonomousPeriodic(self):
-        subsystems.chassis.joystickDrive()
+        pass
 
     def disabledInit(self):
         pass
@@ -25,7 +29,7 @@ class Marvin(CommandBasedRobot):
         pass
 
     def teleopInit(self):
-        pass
+        subsystems.chassis.resetGyro()
 
     def teleopPeriodic(self):
         pass
