@@ -1,4 +1,3 @@
-
 import commands
 
 import wpilib
@@ -16,16 +15,18 @@ class Marvin(CommandBasedRobot):
         oi.init()
         commands.init()
 
-    def autonomousInit(self):
-        pass
-
-    def autonomousPeriodic(self):
-        pass
+        subsystems.chassis.setupEncoder()
 
     def disabledInit(self):
         pass
 
     def disabledPeriodic(self):
+        pass
+
+    def autonomousInit(self):
+        pass
+
+    def autonomousPeriodic(self):
         pass
 
     def teleopInit(self):

@@ -1,4 +1,6 @@
-from wpilib import ADXRS450_Gyro, Spark, SpeedControllerGroup
+from math import pi
+
+from wpilib import ADXRS450_Gyro, Encoder, Spark, SpeedControllerGroup
 from wpilib.command import Subsystem
 from wpilib.drive import DifferentialDrive
 
@@ -17,6 +19,11 @@ class Chassis(Subsystem):
         self.spark_group_R = SpeedControllerGroup(self.spark_R1, self.spark_R2)
         self.drive = DifferentialDrive(self.spark_group_L, self.spark_group_R)
         self.gyro = ADXRS450_Gyro(robotmap.gyro)
+        self.encoder_L = Encoder(0, 1)
+        self.encoder_R = Encoder(2, 3)
+
+        self.dist_pulse_L = pi * 6 / 2048
+        self.dist_pulse_R = pi * 6 / 425
 
     def setDriveSpd(self, spd_drive_new):
         robotmap.spd_chassis_drive = spd_drive_new
@@ -34,6 +41,12 @@ class Chassis(Subsystem):
         self.drive.curvatureDrive(-(oi.joystick.getRawAxis(1))
                                   * robotmap.spd_chassis_drive, oi.joystick.getRawAxis(4) * robotmap.spd_chassis_rotate, True)
 
+    def setupEncoder(self):
+        self.encoder_L.setDistancePerPulse(self.dist_pulse_L)
+        self.encoder_R.setDistancePerPulse(self.dist_pulse_R)
+        self.encoder_L.reset()
+        self.encoder_R.reset()
+
     def getGyroAngle(self):
         return self.gyro.getAngle()
 
@@ -47,6 +60,3 @@ class Chassis(Subsystem):
             self.curvatureDrive(spd_temp, 0.0)
         else:
             raise("GyroDrive() failed!")
-
-    def initDefaultCommand(self):
-        pass
