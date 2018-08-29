@@ -21,15 +21,15 @@ class Intake(Subsystem):
     def intake(self, spd_temp=None, is_fixed=None):
         self.talon_1.setInverted(True)
         self.talon_2.setInverted(False)
-        if spd_temp == None and is_fixed == None:
+        if (spd_temp is None) and (is_fixed is None):
             if oi.joystick.getAxis(2) - oi.joystick.getAxis(3) >= 0.8:
                 self.talon_group.set(0.8)
             elif oi.joystick.getAxis(2) - oi.joystick.getAxis(3) < 0.8:
                 self.talon_group.set(oi.joystick.getAxis(
                     2) - oi.joystick.getAxis(3))
-        elif spd_temp != None and is_fixed == None:
+        elif (spd_temp is not None) and (is_fixed is None):
             self.talon_group.set(spd_temp)
-        elif spd_temp != None and is_fixed != None:
+        elif (spd_temp is not None) and (is_fixed is not None):
             self.talon_group.set(robotmap.spd_intake)
         else:
             raise("intake() fail!")
@@ -37,11 +37,11 @@ class Intake(Subsystem):
     def eject(self, spd_temp=None, is_fixed=None):
         self.talon_1.setInverted(False)
         self.talon_2.setInverted(True)
-        if spd_temp == None and is_fixed == None:
+        if (spd_temp is None) and (is_fixed is None):
             self.talon_group.set(oi.joystick.getAxis(3))
-        elif spd_temp != None and is_fixed == None:
+        elif (spd_temp is not None) and (is_fixed is None):
             self.talon_group.set(spd_temp)
-        elif spd_temp != None and is_fixed != None:
+        elif (spd_temp is not None) and (is_fixed is not None):
             self.talon_group.set(robotmap.spd_intake)
         else:
             raise("eject() fail!")

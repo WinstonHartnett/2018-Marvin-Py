@@ -18,7 +18,9 @@ class Chassis(Subsystem):
         self.spark_group_L = SpeedControllerGroup(self.spark_L1, self.spark_L2)
         self.spark_group_R = SpeedControllerGroup(self.spark_R1, self.spark_R2)
         self.drive = DifferentialDrive(self.spark_group_L, self.spark_group_R)
+
         self.gyro = ADXRS450_Gyro(robotmap.gyro)
+
         self.encoder_L = Encoder(0, 1)
         self.encoder_R = Encoder(2, 3)
 
