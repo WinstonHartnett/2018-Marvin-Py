@@ -5,13 +5,9 @@ import subsystems
 
 class Lift_Move(Command):
 
-    def __init__(self, direction=bool, speed=None):
+    def __init__(self, direction):
         self.requires(subsystems.lift)
         self.direction = direction
-        if speed is None:
-            pass
-        elif speed is not None:
-            self.speed = speed
 
     def execute(self):
         if self.direction is True:
