@@ -1,3 +1,4 @@
+import commands
 from math import pi
 
 from wpilib import ADXRS450_Gyro, Encoder, Spark, SpeedControllerGroup
@@ -64,3 +65,6 @@ class Chassis(Subsystem):
             self.curvatureDrive(spd_temp, 0.0)
         else:
             raise("GyroDrive() failed!")
+
+    def initDefaultCommand(self):
+        self.initDefaultCommand(commands.Chassis_Drive)

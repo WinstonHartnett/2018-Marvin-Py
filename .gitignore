@@ -19,3 +19,6 @@ subsystems/__pycache__/lift.cpython-36.pyc
 subsystems/__pycache__/winch.cpython-36.pyc
 tests/.cache/v/cache/lastfailed
 tests/__pycache__/pyfrc_test.cpython-36-PYTEST.pyc
+commands/__pycache__/lift_lower.cpython-36.pyc
+commands/__pycache__/lift_raise.cpython-36.pyc
+tests/pyfrc_test.py
