@@ -9,7 +9,8 @@ class Lift(Subsystem):
     def __init__(self):
         self.talon_lift = WPI_TalonSRX(robotmap.talon_lift)
 
-    def setSpd(self, spd_new):
+    @classmethod
+    def setSpd(cls, spd_new):
         robotmap.spd_lift = spd_new
 
     def raiseLift(self):

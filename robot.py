@@ -2,7 +2,6 @@ import commands
 
 import wpilib
 from commandbased import CommandBasedRobot
-from wpilib.command import Scheduler
 
 import subsystems
 from inputs import oi

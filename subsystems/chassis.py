@@ -27,10 +27,12 @@ class Chassis(Subsystem):
         self.dist_pulse_L = pi * 6 / 2048
         self.dist_pulse_R = pi * 6 / 425
 
-    def setDriveSpd(self, spd_drive_new):
+    @classmethod
+    def setDriveSpd(cls, spd_drive_new):
         robotmap.spd_chassis_drive = spd_drive_new
 
-    def setRotateSpd(self, spd_rotate_new):
+    @classmethod
+    def setRotateSpd(cls, spd_rotate_new):
         robotmap.spd_chassis_rotate = spd_rotate_new
 
     def stop(self):

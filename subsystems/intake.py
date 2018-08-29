@@ -15,7 +15,8 @@ class Intake(Subsystem):
         self.talon_2 = WPI_TalonSRX(robotmap.talon_intake_2)
         self.talon_group = SpeedControllerGroup(self.talon_1, self.talon_2)
 
-    def setSpd(self, spd_new):
+    @classmethod
+    def setSpd(cls, spd_new):
         robotmap.spd_intake = spd_new
 
     def intake(self, spd_temp=None, is_fixed=None):
