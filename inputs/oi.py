@@ -1,5 +1,5 @@
 from wpilib import Joystick
-from wpilib.buttons import Button, JoystickButton
+from wpilib.buttons import JoystickButton
 
 import robotmap
 
