@@ -9,14 +9,15 @@ class Winch(Subsystem):
     def __init__(self):
         self.spark_winch = Spark(robotmap.spark_winch)
 
-    def setSpd(self, spd_new):
+    @classmethod
+    def setSpd(cls, spd_new):
         robotmap.spd_winch = spd_new
 
     def raiseWinch(self):
         self.spark_winch.setInverted(True)
         self.spark_winch.set(robotmap.spd_winch)
 
-    def stopWinch(self):
+    def stop(self):
         self.spark_winch.set(0.0)
 
     def initDefaultCommand(self):

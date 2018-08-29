@@ -1,7 +1,7 @@
 from wpilib.command import Command
 
 
-class ChangeValue(Command):
+class Change_Value(Command):
 
     def __init__(self, value, number):
         self.value = value

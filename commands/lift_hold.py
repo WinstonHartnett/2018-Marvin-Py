@@ -3,19 +3,19 @@ from wpilib.command import Command
 import subsystems
 
 
-class Intake_Intake(Command):
+class Lift_Hold(Command):
 
     def __init__(self):
-        self.requires(subsystems.intake)
+        self.requires(subsystems.lift)
 
     def execute(self):
-        subsystems.intake.intake()
+        pass                # TODO Add limit switches
 
     def isFinished(self):
         return False
 
     def end(self):
-        subsystems.intake.stop()
+        subsystems.lift.stop()
 
     def interrupted(self):
         self.end()
