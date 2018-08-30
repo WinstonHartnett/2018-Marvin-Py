@@ -17,3 +17,6 @@ spd_winch = 0.6
 
 joystick = 0
 gyro = 0
+
+auton_target = 0
+auton_location = 0

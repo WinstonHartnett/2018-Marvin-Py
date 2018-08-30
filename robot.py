@@ -1,4 +1,5 @@
 import commands
+import logging
 
 import wpilib
 from commandbased import CommandBasedRobot
