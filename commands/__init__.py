@@ -10,6 +10,7 @@ from .lift_hold import Lift_Hold
 from .lift_raise import Lift_Raise
 from .lift_lower import Lift_Lower
 from .winch_raise import Winch_Raise
+from .chassis_drive import Chassis_Drive
 
 
 def init():
@@ -20,3 +21,4 @@ def init():
     oi.bumper_R.whileHeld(Lift_Raise)
     oi.back.whileHeld(Intake_Dislodge)
     oi.stick_R.whileHeld(Winch_Raise)
+    oi.start.whenPressed(Chassis_Drive)
