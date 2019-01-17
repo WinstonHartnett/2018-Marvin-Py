@@ -20,3 +20,7 @@ gyro = 0
 
 auton_target = 0
 auton_location = 0
+
+pneumatics_alternate_period = 8
+solenoid_R = 3
+solenoid_L = 1

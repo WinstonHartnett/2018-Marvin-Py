@@ -5,7 +5,7 @@ from wpilib import SpeedControllerGroup
 from wpilib.command import Subsystem
 
 import robotmap
-from inputs import oi
+import inputs.oi as oi
 
 
 class Intake(Subsystem):
