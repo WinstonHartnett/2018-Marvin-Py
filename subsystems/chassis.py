@@ -12,6 +12,7 @@ from inputs import oi
 class Chassis(Subsystem):
 
     def __init__(self):
+        super().__init__("Chassis")
         self.spark_L1 = Spark(robotmap.spark_L1)
         self.spark_L2 = Spark(robotmap.spark_L2)
         self.spark_R1 = Spark(robotmap.spark_R1)

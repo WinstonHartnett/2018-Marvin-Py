@@ -4,13 +4,14 @@ from ctre import WPI_TalonSRX
 from wpilib import SpeedControllerGroup
 from wpilib.command import Subsystem
 
-import robotmap
 import inputs.oi as oi
+import robotmap
 
 
 class Intake(Subsystem):
 
     def __init__(self):
+        super().__init__("Intake")
         self.talon_1 = WPI_TalonSRX(robotmap.talon_intake_1)
         self.talon_2 = WPI_TalonSRX(robotmap.talon_intake_2)
         self.talon_group = SpeedControllerGroup(self.talon_1, self.talon_2)
