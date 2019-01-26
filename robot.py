@@ -5,8 +5,8 @@ import wpilib
 from commandbased import CommandBasedRobot
 from wpilib.command import Scheduler
 
-import subsystems
 import inputs.oi as oi
+import subsystems
 
 
 class Marvin(CommandBasedRobot):
@@ -23,13 +23,14 @@ class Marvin(CommandBasedRobot):
         pass
 
     def autonomousInit(self):
-        subsystems.pneumatics.extend()
+        pass
 
     def autonomousPeriodic(self):
         pass
 
     def teleopInit(self):
-        subsystems.pneumatics.retract()
+        from commands.chassis_drive import Chassis_Drive
+        Chassis_Drive().start()
 
     def teleopPeriodic(self):
         pass

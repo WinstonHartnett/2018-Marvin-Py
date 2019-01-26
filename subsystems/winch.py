@@ -7,6 +7,7 @@ import robotmap
 class Winch(Subsystem):
 
     def __init__(self):
+        super().__init__("Winch")
         self.spark_winch = Spark(robotmap.spark_winch)
 
     @classmethod

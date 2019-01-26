@@ -7,6 +7,7 @@ import robotmap
 class Lift(Subsystem):
 
     def __init__(self):
+        super().__init__("Lift")
         self.talon_lift = WPI_TalonSRX(robotmap.talon_lift)
 
     @classmethod
