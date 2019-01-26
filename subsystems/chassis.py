@@ -65,6 +65,3 @@ class Chassis(Subsystem):
             self.curvatureDrive(spd_temp, 0.0)
         else:
             raise("GyroDrive() failed!")
-
-    def initDefaultCommand(self):
-        self.initDefaultCommand(commands.Chassis_Drive)
