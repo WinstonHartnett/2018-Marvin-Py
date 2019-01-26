@@ -1,6 +1,7 @@
 *.py[cod]
 tests/
 __pycache__/
+.pytest_cache/
 .vscode/
 .deploy_cfg
 coverage.xml
