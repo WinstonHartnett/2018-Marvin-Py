@@ -1,8 +1,7 @@
-.vscode/launch.json
+*.py[cod]
+tests/
+__pycache__/
+.vscode/
+.deploy_cfg
+coverage.xml
 .coverage
-.vscode/tasks.json
-*.pyc
-tests/.pytest_cache/v/cache/lastfailed
-tests/.pytest_cache/v/cache/nodeids
-.pytest_cache/v/cache/nodeids
-.pytest_cache/v/cache/lastfailed
