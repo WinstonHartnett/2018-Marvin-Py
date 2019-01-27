@@ -3,18 +3,19 @@ import logging
 
 import wpilib
 from commandbased import CommandBasedRobot
-from wpilib.command import Scheduler
 
-import inputs.oi as oi
+import oi
 import subsystems
 
 
 class Marvin(CommandBasedRobot):
 
     def robotInit(self):
+        self.logger = logging.getLogger("Core")
         subsystems.init()
         oi.init()
         commands.init()
+        self.logger.warning("Robot initialized")
 
     def disabledInit(self):
         pass
@@ -29,8 +30,7 @@ class Marvin(CommandBasedRobot):
         pass
 
     def teleopInit(self):
-        from commands.chassis_drive import Chassis_Drive
-        Chassis_Drive().start()
+        pass
 
     def teleopPeriodic(self):
         pass
