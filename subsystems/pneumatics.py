@@ -30,17 +30,4 @@ class Pneumatics(Subsystem):
         return self.is_active
 
     def alternate(self):
-        if self.is_active is False:
-            self.time = time.time()
-            self.time -= self.time
-            self.is_active = True
-        elif self.is_active:
-            pass
-
-        if ((time.time() - self.time()) <= (robotmap.pneumatics_alternate_period / 2)):
-            self.extend()
-        elif ((time.time() - self.time()) >= (robotmap.pneumatics_alternate_period / 2)) and ((time.time() - self.time()) <= robotmap.pneumatics_alternate_period):
-            self.retract()
-        else:
-            self.halt()
-            self.is_active = False
+        pass

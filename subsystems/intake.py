@@ -4,8 +4,8 @@ from ctre import WPI_TalonSRX
 from wpilib import SpeedControllerGroup
 from wpilib.command import Subsystem
 
-import oi
 import robotmap
+import inputs.oi as oi
 
 
 class Intake(Subsystem):

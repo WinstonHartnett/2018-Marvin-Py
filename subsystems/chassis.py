@@ -5,8 +5,8 @@ from wpilib import ADXRS450_Gyro, Encoder, Spark, SpeedControllerGroup
 from wpilib.command import Subsystem
 from wpilib.drive import DifferentialDrive
 
-import oi
 import robotmap
+from inputs import oi
 
 
 class Chassis(Subsystem):
@@ -68,5 +68,5 @@ class Chassis(Subsystem):
             raise("GyroDrive() failed!")
 
     def initDefaultCommand(self):
-        from commands import Chassis_Drive
+        from commands.chassis_drive import Chassis_Drive
         self.setDefaultCommand(Chassis_Drive())
