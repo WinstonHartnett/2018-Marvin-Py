@@ -19,10 +19,12 @@ class PhysicsEngine(physics_controller):
         )        
     def update_sim(self, hal_data, now, tm_diff):
         self.physics_controller.drive(speed, rotation, tm_diff)
-         l_motor = hal_data["pwm"][1]["value"]
-        r_motor = hal_data["pwm"][2]["value"]
+        l_motor1 = hal_data["pwm"][0]["value"]
+        r_motor1 = hal_data["pwm"][2]["value"]
 
-        x, y, angle = self.drivetrain.get_distance(l_motor, r_motor, tm_diff)
+        x, y, angle = self.drivetrain.get_distance(l_motor1, r_motor1, tm_diff)
         self.physics_controller.distance_drive(x, y, angle)
 
         self.position += hal_data["pwm"][4]["value"] * tm_diff *
+
+        
