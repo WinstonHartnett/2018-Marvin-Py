@@ -1,7 +1,7 @@
-from pyfrc.physics import drivetrains, motor_cfgs
+from pyfrc.physics import drivetrains, motor_cfgs, tankmodel
 from pyfrc.physics.units import units
 
-class PhysicsEngine(physics_controller):
+class PhysicsEngine(object):
     
     def __init__(self, physics_controller):
         self.physics_controller = physics_controller
@@ -18,7 +18,6 @@ class PhysicsEngine(physics_controller):
             8 * units.inch,                     # wheel diameter
         )        
     def update_sim(self, hal_data, now, tm_diff):
-        self.physics_controller.drive(speed, rotation, tm_diff)
         l_motor1 = hal_data["pwm"][0]["value"]
         r_motor1 = hal_data["pwm"][2]["value"]
 
