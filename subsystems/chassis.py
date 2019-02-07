@@ -67,6 +67,6 @@ class Chassis(Subsystem):
         else:
             raise("GyroDrive() failed!")
 
-    def initDefaultCommand(self):
-        from commands.chassis_drive import Chassis_Drive
-        self.setDefaultCommand(Chassis_Drive())
+    # def initDefaultCommand(self):
+    #     from commands.chassis_drive import Chassis_Drive
+    #     self.setDefaultCommand(Chassis_Drive())
